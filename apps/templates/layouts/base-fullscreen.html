@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ ASSETS_ROOT }}/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="{{ ASSETS_ROOT }}/img/favicon.png">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <title>
+    e-Study - {% block title %}{% endblock %}
+  </title>
+
+  <!-- Fonts and icons -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
+<!-- Nucleo Icons -->
+<link href="{{ ASSETS_ROOT }}/css/nucleo-icons.css" rel="stylesheet" type="text/css" />
+<link href="{{ ASSETS_ROOT }}/css/nucleo-svg.css" rel="stylesheet" type="text/css" />
+
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+<link href="{{ ASSETS_ROOT }}/css/nucleo-svg.css" rel="stylesheet" type="text/css" />
+
+<!-- CSS Files -->
+<link id="pagestyle" href="{{ ASSETS_ROOT }}/css/e-school.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" type="text/css" />
+
+<style>
+
+.overlay{
+position: absolute;
+z-index: -4;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+background-image: linear-gradient(to bottom, rgba(4, 0, 13, 0) 0%, rgba(4, 0, 13) 100%);
+}
+
+#navbar {
+  background-color: rgba(37, 24, 61, 0.0) !important; 
+  border-color: rgba(37, 24, 61, 0.0); 
+  box-shadow: none !important;
+}
+
+#navbar.scrolled {
+  background-color: rgba(37, 24, 61, 0.5) !important; 
+  border-color: #131F24; 
+  box-shadow: none !important;
+  transition: background-color 200ms linear;
+}
+
+</style>
+
+  <!-- Specific CSS goes HERE -->
+  {% block stylesheets %}{% endblock stylesheets %}
+
+</head>
+
+<body class="" style="background-color: #04000D;">
+
+  {% block content %}{% endblock content %}
+
+  {% include "includes/scripts.html" %}
+
+  <!-- Specific JS goes HERE --> 
+  {% block javascripts %}{% endblock javascripts %}
+
+  <script>
+    
+    $(function () {
+  var buttonAdded = false; // Flag to check if the button has been added
+
+  $(document).scroll(function () {
+    var $nav = $("#navbar");
+    var scrollTop = $(this).scrollTop();
+    var navbarThreshold = $nav.offset().top + $nav.height(); // Calculate the threshold for the navbar
+    var buttonThreshold = $("#register-btn").offset().top - $nav.height(); // Calculate the threshold for the button
+
+    $nav.toggleClass('scrolled blur', scrollTop > 30);
+
+
+        // Additional logic as needed...
+
+        // Add the button only if it hasn't been added yet
+        if (!buttonAdded && scrollTop > buttonThreshold) {
+          var aElement = $('<a>', {
+            'class': 'btn bg-gradient-primary my-2 me-10',
+            'href': '{% url "register" %}',
+            'text': 'Comece Agora'
+          });
+          $("#navbar-container").append(aElement);
+          $("#navbar-container").removeClass('justify-content-center');
+          $("#logo").addClass('ms-10');
+
+          // Set the flag to true to indicate that the button has been added
+          buttonAdded = true;
+        } else if (buttonAdded && scrollTop <= buttonThreshold) {
+          // Reset changes when scrolling back to the top
+          $nav.removeClass('scrolled blur');
+          $("#navbar-container").addClass('justify-content-center');
+          $("#logo").removeClass('ms-10');
+          $("#navbar-container").find('.btn').remove(); // Remove the added button
+          buttonAdded = false; // Reset the flag
+        }
+      });
+    });
+
+  </script>
+
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{{ ASSETS_ROOT }}/js/e-school.js"></script>
+
+</body>
+</html>

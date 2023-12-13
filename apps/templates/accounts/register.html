@@ -1,0 +1,138 @@
+{% extends 'layouts/base-fullscreen.html' %}
+
+{% block title %} Criar Conta {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <main class="main-content mt-0">
+    <video autoplay loop muted playsinline class="position-absolute end-0 bottom-0 h-auto w-100" style="z-index: -5;">
+      <source src="{{ ASSETS_ROOT }}/img/videos/Comp_8.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+  </video>
+    <section>
+
+      <div class="container-fluid">
+        <div class="row justify-content-between">
+            <div class="col-1 pt-4 ms-2">
+                <img src="https://d35aaqx5ub95lt.cloudfront.net/images/ed25a8cf69261b0c1e25b147f369f74a.svg" class="img-fluid" onclick="redirectToBemVindo()" style="cursor: pointer;">
+            </div>
+    
+            <div class="col-1 text-center">
+                <a href="{% url 'login' %}" class="btn bg-gradient-secondary w-100 mt-4 mb-0">Entrar</a>
+            </div>
+        </div>
+    </div>
+    
+
+    </section>
+    
+    <section>
+      <div class="page-header min-vh-75">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+              <div class="card z-index-0 card-plain mt-6">
+
+                <div class="card-header text-center pt-4 bg-transparent">
+                  <h3 class="font-weight-bolder text-white">
+                    Crie sua perfil
+                  </h3>
+                </div>
+  
+                <div class="row px-xl-5 px-sm-4 px-3">
+                  
+                  <div class="mt-2 position-relative text-center">
+                    <p class="text-sm font-weight-bold mb-2 text-white text-border d-inline z-index-2 px-3">
+                      {% if msg %}
+                        <span class="text-danger">{{ msg | safe }}</span>
+                      {% else %}
+                        Adicione suas informações
+                      {% endif %}  
+                    </p>
+                  </div>
+  
+                </div>
+  
+                <div class="card-body">
+  
+                  {% if success %} 
+                  
+                    <p class="text-sm mt-3 mb-0 text-center"> 
+                      <div class="text-center">
+                        <a href="{% url 'login' %}" class="btn bg-gradient-dark w-100 my-4 mb-2">Entrar</a>
+                      </div> 
+                    </p>
+  
+                  {% else %}
+  
+                    <form role="form text-left" method="post" action="">
+  
+                        {% csrf_token %}
+  
+                        <label class="text-white text-shadow">Usuário:</label>
+                        <div class="mb-3">
+                          {{ form.username }}
+                        </div>
+                        <span class="text-danger">{{ form.username.errors }}</span>
+  
+                        <label class="text-white text-shadow">E-mail:</label>
+                        <div class="mb-3">
+                          {{ form.email }}
+                        </div>
+                        <span class="text-danger">{{ form.email.errors }}</span>
+  
+                        <label class="text-white text-shadow">Senha:</label>
+                        <div class="mb-3">
+                          {{ form.password1 }}
+                        </div>
+                        <span class="text-danger">{{ form.password1.errors }}</span>
+  
+                        <label class="text-white text-shadow">Confirme a Senha:</label>
+                        <div class="mb-3">
+                          {{ form.password2 }}
+                        </div>
+                        <span class="text-danger">{{ form.password2.errors }}</span>                      
+  
+                        <div class="text-center">
+                          <button type="submit" name="register" class="btn bg-gradient-primary w-100 my-4 mb-2">Registrar-se</button>
+                        </div>
+                 
+                    </form>
+  
+                  {% endif %}
+  
+                </div>
+              </div>
+
+                  <p class="text-center text-white text-sm pt-5">Ao entrar no Duolingo, você concorda com os nossos Termos e Política de Privacidade.
+                    <br><br>Este site é protegido pela reCAPTCHA Enterprise. Aplicam-se a Política de Privacidade e os Termos de Uso do Google.</p>
+
+                </div>
+                
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+<script>
+  function redirectToBemVindo() {
+      window.location.href = "{% url 'bemvindo' %}";
+  }
+</script>
+
+{% endblock javascripts %}
+

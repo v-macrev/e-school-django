@@ -1,0 +1,218 @@
+{% extends 'layouts/base-fullscreen.html' %}
+
+{% block title %}Aprendendo de uma forma simples {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    {% include "includes/navigation-fullscreen.html" %}
+
+    <video autoplay muted loop class="position-absolute end-0 bottom-0 h-auto w-100" style="z-index: -5;">
+        <source src="{{ ASSETS_ROOT }}/img/videos/Comp_8.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+
+    <section class="section pt-1" style="height: 92vh;">
+        <div class="container">
+            <div class="row mt-12 pt-7">
+                <div class="col-4 ms-8">
+                    <img src="{{ ASSETS_ROOT }}/img/illustrations/rocket-dark.png" class="img-fluid" alt="logo">
+                </div>
+                <div class="col-5 ms-4 d-flex flex-column justify-content-center align-items-center">
+                    <p class="text-white text-shadow h3 text-center mb-5">O jeito grátis, divertido e eficaz de aprender!</p>
+                    <a id="register-btn" class="col-8 btn btn-primary bg-gradient-primary btn-lg" href="{% url 'register' %}">Comece Agora</a>
+                    <a class="col-8 btn btn-primary bg-gradient-secondary btn-lg" href="{% url 'login' %}">Já tenho uma conta</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-top border-bottom border-dark container-fluid d-flex align-items-center justify-content-center" style="height: 8.2vh;">
+        <nav class="navbar navbar-expand-lg navbar-dark col-6">
+
+            <svg class="bi bi-arrow-left text-left me-4 ms-0" fill="none" viewBox="0 0 16 16" width="16px" height="16px">
+                <path d="M10 2L4 8L10 14" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+            
+        
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/course/en/pt/Aprenda-ingl%C3%AAs">
+                        <svg viewBox="0 0 82 66" data-test="flag-en" class="_1v6Jc" style="height: 28.9756px; width: 36px;">
+                            <image height="3168" href="https://d35aaqx5ub95lt.cloudfront.net/vendor/87938207afff1598611ba626a8c4827c.svg" width="82" xlink:href="https://d35aaqx5ub95lt.cloudfront.net/vendor/87938207afff1598611ba626a8c4827c.svg"></image>
+                        </svg>
+                        <span class="text-white ms-3 me-4 text-uppercase font-weight-bold">Inglês</span>
+                    </a>
+                </li>
+                <!-- Repeat the following list items for other languages -->
+                <li class="nav-item">
+                    <a class="nav-link TNj94" href="/course/es/pt/Aprenda-espanhol">
+                        <svg viewBox="0 66 82 66" data-test="flag-es" class="_1v6Jc" style="height: 28.9756px; width: 36px;">
+                            <image height="3168" href="https://d35aaqx5ub95lt.cloudfront.net/vendor/87938207afff1598611ba626a8c4827c.svg" width="82" xlink:href="https://d35aaqx5ub95lt.cloudfront.net/vendor/87938207afff1598611ba626a8c4827c.svg"></image>
+                        </svg>
+                        <span class="text-white ms-3 me-4 text-uppercase font-weight-bold">Espanhol</span>
+                    </a>
+                </li>
+            </ul>
+
+            <svg class="bi bi-arrow-right ms-4" fill="none" viewBox="0 0 16 16" width="16px" height="16px">
+                <path d="M6 2L12 8L6 14" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+        
+
+        </nav>
+        
+
+        </div>
+    </section>
+
+    <section class="section pt-4 mt-4">
+
+        <div class="container mt-8 mx-12">
+            <div class="row pt-7 ms-10 mb-1">
+                <div class="col-6 d-flex flex-column">
+                    <p class="text-white text-shadow h1 text-start">grátis. divertido. eficaz.</p>
+                    <p>Aprender com o Duolingo é divertido, e pesquisas comprovam que funciona mesmo! Com lições rápidas e curtinhas, você ganha pontos e desbloqueia novos níveis enquanto aprende como se comunicar na vida real.</p>
+                </div>
+                <div class="col-4 ms-6">
+                    <img src="{{ ASSETS_ROOT }}/img/illustrations/rocket-dark.png" class="img-fluid h-100 w-auto" alt="logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-6 mx-12">
+            <div class="row pt-7 ms-10 mb-1">
+                <div class="col-4 ms-2 me-6">
+                    <img src="{{ ASSETS_ROOT }}/img/illustrations/rocket-dark.png" class="img-fluid h-100 w-auto" alt="logo">
+                </div>
+
+                <div class="col-6 d-flex flex-column">
+                    <p class="text-white text-shadow h1 text-start">baseado na ciência</p>
+                    <p>Combinamos metodologias aprovadas pela ciência com um conteúdo encantador para criar cursos eficazes que ensinam leitura, escrita, escuta e fala!</p>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="container mt-6 mx-12">
+            <div class="row pt-7 ms-10 mb-1">
+                <div class="col-6 d-flex flex-column">
+                    <p class="text-white text-shadow h1 text-start">mantenha a motivação</p>
+                    <p>Fica fácil criar o hábito de aprender idiomas com recursos que parecem de jogo, desafios divertidos e lembretes do nosso mascote simpático, a coruja Duo.</p>
+                </div>
+                <div class="col-4 ms-6">
+                    <img src="{{ ASSETS_ROOT }}/img/illustrations/rocket-dark.png" class="img-fluid h-100 w-auto" alt="logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-6 mx-12">
+            <div class="row pt-7 ms-10 mb-1">
+                <div class="col-4 ms-2 me-6">
+                    <img src="{{ ASSETS_ROOT }}/img/illustrations/rocket-dark.png" class="img-fluid h-100 w-auto" alt="logo">
+                </div>
+
+                <div class="col-6 d-flex flex-column">
+                    <p class="text-white text-shadow h1 text-start">aprendizado feito para você</p>
+                    <p>As lições combinam o melhor da inteligência artificial e da ciência da linguagem e são feitas sob medida para ajudar você a aprender no nível e ritmo certos.</p>
+                </div>
+                
+            </div>
+        </div>
+
+    </section>
+
+    <section class="mt-5 d-flex align-items-center justify-content-center" style="height: 100vh;">
+        <div class="h-100 w-100 d-flex align-items-center justify-content-center" style="background-image: url('https://d35aaqx5ub95lt.cloudfront.net/images/splash/lottie/229d5f88cc9df2eb0b68f39466500911.svg');">
+            <div class="text-center">
+                <p class="h1 text-white text-shadow mt-5">aprenda onde e quando quiser</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-5 d-flex align-items-center justify-content-center" style="height: 100vh;">
+        <div class="bg-gradient-primary row h-100 w-100 d-flex align-items-center justify-content-center">
+            <div class="col-4">
+                <img src="{{ ASSETS_ROOT }}/img/illustrations/rocket-dark.png" class="img-fluid h-auto w-100" alt="logo">
+            </div>
+            <div class="col-4 text-center">
+                <p class="h1 text-white text-shadow mt-5 text-uppercase">power up with<br> super duolingo</p>
+                <a id="register-btn" class="btn btn-primary bg-gradient-primary btn-lg mt-5" href="{% url 'register' %}">Experimente 2 semanas grátis</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section pt-4 mt-4">
+
+        <div class="container mt-1 mx-12">
+            <div class="row pt-7 ms-10 mb-1">
+                <div class="col-6 d-flex flex-column">
+                    <p class="text-white text-shadow h1 text-start">duolingo english test</p>
+                    <p>Nosso teste de inglês rápido, acessível e conveniente integra inteligência artificial e conhecimentos de ponta sobre avaliação, o que permite que todos façam o teste onde e quando se sentirem mais à vontade.</p>
+                </div>
+                <div class="col-4 ms-6">
+                    <img src="{{ ASSETS_ROOT }}/img/illustrations/rocket-dark.png" class="img-fluid h-100 w-auto" alt="logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-6 mx-12">
+            <div class="row pt-7 ms-10 mb-1">
+                <div class="col-4 ms-2 me-6">
+                    <img src="{{ ASSETS_ROOT }}/img/illustrations/rocket-dark.png" class="img-fluid h-100 w-auto" alt="logo">
+                </div>
+
+                <div class="col-6 d-flex flex-column">
+                    <p class="text-white text-shadow h1 text-start">duolingo for schools</p>
+                    <p>Professores, estamos aqui para ajudar! A nossa ferramenta gratuita apoia os seus alunos enquanto eles aprendem idiomas pelo aplicativo do Duolingo, tanto dentro quanto fora da sala de aula.</p>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="container mt-6 mx-12">
+            <div class="row pt-7 ms-10 mb-1">
+                <div class="col-6 d-flex flex-column">
+                    <p class="text-white text-shadow h1 text-start">duolingo abc</p>
+                    <p>Do ensino de idiomas à alfabetização! Com lições divertidas de fônica e histórias encantadoras, o Duolingo ABC ajuda crianças de 3 a 8 anos a aprender a ler e escrever — totalmente grátis!</p>
+                </div>
+                <div class="col-4 ms-6">
+                    <img src="{{ ASSETS_ROOT }}/img/illustrations/rocket-dark.png" class="img-fluid h-100 w-auto" alt="logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-6 mx-12">
+            <div class="row pt-7 ms-10 mb-1">
+                <div class="col-4 ms-2 me-6">
+                    <img src="{{ ASSETS_ROOT }}/img/illustrations/rocket-dark.png" class="img-fluid h-100 w-auto" alt="logo">
+                </div>
+
+                <div class="col-6 d-flex flex-column">
+                    <p class="text-white text-shadow h1 text-start">duolingo math</p>
+                    <p>Nossas lições curtinhas e gratuitas, agora na matemática! Os exercícios divertidos ajudam os alunos em idade escolar a evoluir nas aulas, enquanto os adultos podem treinar o cérebro para turbinar o raciocínio matemático.</p>
+                </div>
+                
+            </div>
+        </div>
+
+    </section>
+
+    <section class="mt-5 d-flex align-items-center justify-content-center" style="height: 100vh;">
+        <div class="h-100 w-100 d-flex align-items-center justify-content-center" style="background-image: url('https://d35aaqx5ub95lt.cloudfront.net/images/splash/lottie/229d5f88cc9df2eb0b68f39466500911.svg');">
+            <div class="text-center col-3">
+                <p class="h1 text-white text-shadow mt-5">aprenda um idioma com o duolingo</p>
+                <a id="register-btn" class="btn btn-primary bg-gradient-primary btn-lg mt-5" href="{% url 'register' %}">Comece Agora</a>
+            </div>
+        </div>
+    </section>
+    
+    
+  {% include "includes/footer-fullscreen.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}
