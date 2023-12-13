@@ -100,8 +100,8 @@ if os.environ.get('ENVIROMENT') == 'PROD':
 else:
     DATABASES = { 
       'default': {
-        'ENGINE'  : os.getenv('DEV_DB_ENGINE'), 
-        'NAME'  : os.path.join(BASE_DIR, os.getenv('DEV_DB_NAME')),
+        'ENGINE'  : 'django.db.backends.sqlite3', 
+        'NAME'  : os.path.join(BASE_DIR, 'app_enade.db'),
       },
     }
 
