@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-  projorc2024:
-    image: projorc2024
+  e-school:
+    image: e-school
     build:
       context: .
       dockerfile: ./Dockerfile

@@ -9,14 +9,7 @@ RUN apt-get update && apt-get install -y git\
     default-libmysqlclient-dev \
     libpq-dev \
     pkg-config \
-    locales && \
-    locale-gen pt_BR.UTF-8 && \
-    update-locale
 
-# Set the locale in the Docker environment
-ENV LANG pt_BR.UTF-8
-ENV LANGUAGE pt_BR:pt
-ENV LC_ALL pt_BR.UTF-8
 
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1

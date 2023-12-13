@@ -81,18 +81,27 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-if os.environ.get('DB_ENGINE') and os.environ.get('DB_ENGINE') == "mysql":
+if os.environ.get('ENVIROMENT') == 'PROD':
     DATABASES = { 
       'default': {
-        'ENGINE'  : os.getenv('DB_ENGINE'), 
-        'NAME'  : os.path.join(BASE_DIR, os.getenv('DB_NAME')),
+        'ENGINE'  : os.getenv('PROD_DB_ENGINE'),
+        'HOST'  : os.getenv('PROD_DB_SERVER'), 
+        'PORT'  : os.getenv('PROD_DB_PORT'),
+        'NAME'  : os.getenv('PROD_DB_NAME'),
+        'USER'  : os.getenv('PROD_DB_USER'),
+        'PASSWORD'  : os.getenv('PROD_DB_PASS'),
+        'OPTIONS': {
+            'host_is_server': True,
+            'timeout': 60,
+            'driver': 'ODBC Driver 17 for SQL Server',
+        },
       },
     }
 else:
     DATABASES = { 
       'default': {
-        'ENGINE'  : os.getenv('DB_ENGINE'), 
-        'NAME'  : os.path.join(BASE_DIR, os.getenv('DB_NAME')),
+        'ENGINE'  : os.getenv('DEV_DB_ENGINE'), 
+        'NAME'  : os.path.join(BASE_DIR, os.getenv('DEV_DB_NAME')),
       },
     }
 
