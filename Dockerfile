@@ -8,9 +8,8 @@ RUN apt-get update && apt-get install -y git\
     gcc \
     default-libmysqlclient-dev \
     libpq-dev \
-    pkg-config \
-
-
+    pkg-config 
+    
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
 
